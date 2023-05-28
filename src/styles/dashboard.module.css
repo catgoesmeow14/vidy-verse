@@ -1,0 +1,24 @@
+.gradient-animation {
+  animation: gradient 10s linear infinite;
+  background-size: 200% auto;
+  background-image: linear-gradient(
+    to right,
+    #5a67d8,
+    #a65ad8,
+    #d85a9f,
+    #d87d5a,
+    #d8d35a
+  );
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
