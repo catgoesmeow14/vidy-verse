@@ -86,10 +86,10 @@ const Dashboard = () => {
                 possesses an unwavering spirit, always ready to lend a helping
                 hand to her friends and face any challenge with a cheerful
                 attitude. Her determination shines through in her radiant smile,
-                lighting up the darkest of moments. Whether she's wielding her
-                magical staff or simply enjoying a peaceful moment under a
-                starry sky, Stelle's presence brings joy and warmth to the world
-                around her.
+                lighting up the darkest of moments. Whether she&apos;s wielding
+                her magical staff or simply enjoying a peaceful moment under a
+                starry sky, Stelle&apos;s presence brings joy and warmth to the
+                world around her.
               </p>
               <a
                 href="#"
@@ -117,7 +117,7 @@ const Dashboard = () => {
                 has the power to captivate hearts and transport listeners to
                 another world. With each note he sings, he effortlessly conveys
                 emotions and touches the souls of those who hear him. Beyond his
-                exceptional vocal abilities, Tae Rae's endearing charm and
+                exceptional vocal abilities, Tae Rae&apos;s endearing charm and
                 adorable personality make him impossible to resist. His genuine
                 smile and playful nature light up any room, instantly bringing
                 joy to those around him. Kim Tae Rae is truly a gem, both in
@@ -151,13 +151,13 @@ const Dashboard = () => {
                 performance. Not only does he possess an incredible vocal range
                 that leaves audiences spellbound, but he also showcases his
                 intelligence through his insightful lyrics and creative ideas.
-                Beyond his artistic abilities, Hao's kind heart shines brightly,
-                spreading warmth and compassion to everyone around him. With his
-                gentle smile and caring nature, he uplifts those in need and
-                inspires others to be their best selves. Zhang Hao is not just a
-                talented artist but a remarkable individual with a heart of
-                gold, making him the beloved center of ZEROBASEONE and a role
-                model for many.
+                Beyond his artistic abilities, Hao&apos;s kind heart shines
+                brightly, spreading warmth and compassion to everyone around
+                him. With his gentle smile and caring nature, he uplifts those
+                in need and inspires others to be their best selves. Zhang Hao
+                is not just a talented artist but a remarkable individual with a
+                heart of gold, making him the beloved center of ZEROBASEONE and
+                a role model for many.
               </p>
               <a
                 href="#"
@@ -185,11 +185,11 @@ const Dashboard = () => {
                 Herta from Honkai Star Rail is an absolutely cool and
                 brilliantly intelligent individual. With her effortless style
                 and confident demeanor, she exudes an aura of undeniable
-                coolness that captivates everyone around her. Herta's sharp wit
-                and quick thinking make her a force to be reckoned with, as she
-                flawlessly strategizes and tackles challenges head-on. Her vast
-                knowledge and exceptional problem-solving skills never fail to
-                impress, earning her the admiration of her peers. But beneath
+                coolness that captivates everyone around her. Herta&apos;s sharp
+                wit and quick thinking make her a force to be reckoned with, as
+                she flawlessly strategizes and tackles challenges head-on. Her
+                vast knowledge and exceptional problem-solving skills never fail
+                to impress, earning her the admiration of her peers. But beneath
                 her cool exterior, Herta possesses a warm heart and a caring
                 nature, always ready to lend a helping hand. Herta is the
                 epitome of coolness and intelligence, a true standout in the
