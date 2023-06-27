@@ -6,6 +6,7 @@ import Divider from '../components/Divider';
 import Footer from '../components/Footer';
 import LeftSection from '../components/LeftSection';
 import RightSection from '../components/RightSection';
+import Image from 'next/image';
 
 // Define the project data type
 type Project = {
@@ -23,7 +24,7 @@ const Dashboard: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/projects?ids=${projectIds.join(',')}`
+          `https://vidyverse-db.vercel.app/projects?ids=${projectIds.join(',')}`
         );
         const data = await response.json();
         console.log(data);
@@ -36,23 +37,21 @@ const Dashboard: React.FC = () => {
     fetchData();
   }, []);
 
-  // Filter projects based on odd project IDs
-  const oddProjects = projects.filter(
-    (project) => project.project_id % 2 !== 0
-  );
+  // // Filter projects based on odd project IDs
+  // const oddProjects = projects.filter(
+  //   (project) => project.project_id % 2 !== 0
+  // );
 
-  // Filter projects based on even project IDs
-  const evenProjects = projects.filter(
-    (project) => project.project_id % 2 === 0
-  );
+  // // Filter projects based on even project IDs
+  // const evenProjects = projects.filter(
+  //   (project) => project.project_id % 2 === 0
+  // );
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-100 to-purple-100 text-gray-800">
       <Header />
       <div className="container mx-auto py-8 mt-8">
-        <div
-          className={`relative bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg shadow-lg p-6 text-white ${styles['gradient-animation']}`}
-        >
+        <div className="relative bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg shadow-lg p-6 text-white gradient-animation">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-5xl font-bold text-shadow mb-4">
@@ -94,10 +93,12 @@ const Dashboard: React.FC = () => {
             </div>
 
             <div className="w-1/2">
-              <img
+              <Image
+                className="object-cover rounded-lg shadow-lg"
                 src="https://i.pinimg.com/564x/ed/de/36/edde365aae4dcd19515df053b4c74e91.jpg"
                 alt="Vidy-Verse"
-                className="object-cover rounded-lg shadow-lg"
+                width={500}
+                height={300}
               />
             </div>
           </div>
@@ -106,18 +107,10 @@ const Dashboard: React.FC = () => {
         <Divider />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-5">
           {/* Map odd project data to the grid */}
-          {oddProjects.map((project) => (
+          {projects.map((project) => (
             <React.Fragment key={project.project_id}>
               {/* Left Section */}
               <LeftSection project={project} />
-            </React.Fragment>
-          ))}
-
-          {/* Map even project data to the grid */}
-          {evenProjects.map((project) => (
-            <React.Fragment key={project.project_id}>
-              {/* Right Section */}
-              <RightSection project={project} />
             </React.Fragment>
           ))}
         </div>

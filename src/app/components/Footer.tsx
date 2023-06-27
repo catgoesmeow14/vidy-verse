@@ -4,7 +4,7 @@ import styles from '../../styles/dashboard.module.css';
 const Footer = () => {
   return (
     <footer
-      className={`bg-indigo-500 text-white py-8 ${styles['gradient-animation']}`}
+      className="bg-indigo-500 text-white py-8 gradient-animation"
     >
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center">

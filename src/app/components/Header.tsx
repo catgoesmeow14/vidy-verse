@@ -4,7 +4,7 @@ import styles from '../../styles/dashboard.module.css';
 const Header = () => {
   return (
     <header
-      className={`fixed top-0 left-0 w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-4 px-8 flex justify-between items-center ${styles['gradient-animation']}`}
+      className="fixed top-0 left-0 w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-4 px-8 flex justify-between items-center gradient-animation"
       style={{ position: 'sticky', zIndex: 999 }}
     >
       <div className="flex items-center">
