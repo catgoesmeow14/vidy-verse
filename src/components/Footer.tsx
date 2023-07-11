@@ -1,17 +1,21 @@
 import React from 'react';
-import styles from '../../styles/dashboard.module.css';
+import styles from '../styles/dashboard.module.css';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
     <footer
-      className="bg-indigo-500 text-white py-8 gradient-animation"
+      className={`bg-indigo-500 text-white py-8 ${styles['gradient-animation']}`}
     >
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center">
-          <img
-            src="https://i.pinimg.com/736x/2f/f7/94/2ff794bcd68f5572e836e52347540f12.jpg"
+          <Image
+            // herta chibi
+            src="/assets/herta chibi.jpg"
             alt="Vidya-Verse Logo"
             className="h-12 w-12 rounded-full mr-2"
+            width={500}
+            height={500}
           />
           <div>
             <h1 className="text-2xl font-bold">Vidya-Verse</h1>

@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../components/Header';
-import Divider from '../components/Divider';
-import Footer from '../components/Footer';
+import Header from '../../components/Header';
+import Divider from '../../components/Divider';
+import Footer from '../../components/Footer';
 import styles from '../../styles/dashboard.module.css';
 
 const Dashboard = () => {

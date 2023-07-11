@@ -1,11 +1,10 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import styles from '../../styles/dashboard.module.css';
-import Header from '../components/Header';
-import Divider from '../components/Divider';
-import Footer from '../components/Footer';
-import LeftSection from '../components/LeftSection';
-import RightSection from '../components/RightSection';
+import Header from '../../components/Header';
+import Divider from '../../components/Divider';
+import Footer from '../../components/Footer';
+import Section from '../../components/Section';
 import Image from 'next/image';
 
 // Define the project data type
@@ -37,21 +36,13 @@ const Dashboard: React.FC = () => {
     fetchData();
   }, []);
 
-  // // Filter projects based on odd project IDs
-  // const oddProjects = projects.filter(
-  //   (project) => project.project_id % 2 !== 0
-  // );
-
-  // // Filter projects based on even project IDs
-  // const evenProjects = projects.filter(
-  //   (project) => project.project_id % 2 === 0
-  // );
-
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-100 to-purple-100 text-gray-800">
       <Header />
       <div className="container mx-auto py-8 mt-8">
-        <div className="relative bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg shadow-lg p-6 text-white gradient-animation">
+        <div
+          className={`relative bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg shadow-lg p-6 text-white ${styles['gradient-animation']}`}
+        >
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-5xl font-bold text-shadow mb-4">
@@ -95,10 +86,10 @@ const Dashboard: React.FC = () => {
             <div className="w-1/2">
               <Image
                 className="object-cover rounded-lg shadow-lg"
-                src="https://i.pinimg.com/564x/ed/de/36/edde365aae4dcd19515df053b4c74e91.jpg"
+                src="/assets/herta biasa.jpg"
                 alt="Vidy-Verse"
                 width={500}
-                height={300}
+                height={500}
               />
             </div>
           </div>
@@ -106,11 +97,11 @@ const Dashboard: React.FC = () => {
 
         <Divider />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-5">
-          {/* Map odd project data to the grid */}
+          {/* Map project data to the grid */}
           {projects.map((project) => (
             <React.Fragment key={project.project_id}>
-              {/* Left Section */}
-              <LeftSection project={project} />
+              {/* Section */}
+              <Section project={project} />
             </React.Fragment>
           ))}
         </div>
