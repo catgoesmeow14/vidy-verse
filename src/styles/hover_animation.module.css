@@ -1,0 +1,33 @@
+.hover-animated-container {
+  transition: transform 0.3s ease, background 0.3s ease;
+  background: var(--initial-background, white);
+}
+
+.hover-animated-container:hover {
+  transform: scale(1.05); /* Zooms in the box */
+  --initial-background: rgba(214, 162, 232, 0.5); /* Half opacity gradient */
+  background: var(--initial-background, white);
+  animation: alternate-gradient 2s linear infinite;
+  background-size: 200% auto;
+}
+
+@keyframes alternate-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Example of a different gradient for the hover effect */
+.hover-animated-container:hover {
+  background-image: linear-gradient(
+    to right,
+    #1a74eb,
+    /* Different color */ #b6fbff /* Different color */
+  );
+}

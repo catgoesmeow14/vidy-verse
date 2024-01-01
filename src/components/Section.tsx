@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import React from 'react';
+import styles from '@/styles/hover_animation.module.css';
 
 type SectionProps = {
   project: Project;
@@ -13,13 +13,25 @@ type Project = {
 };
 
 const Section: React.FC<SectionProps> = ({ project }) => {
+  const [hovered, setHovered] = React.useState(false);
+
+  const handleMouseEnter = () => setHovered(true);
+  const handleMouseLeave = () => setHovered(false);
+
   const handleReadMoreClick = () => {
-    window.open(`/${project.project_id}`, '_blank');
-    console.log('MASOKKK');
+    if (typeof window !== 'undefined') {
+      // Navigate to the project detail page
+      const projectDetailUrl = `/project/${project.project_id}`;
+      window.open(projectDetailUrl);
+    }
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-white rounded-lg shadow-lg p-4 lg:col-span-1">
+    <div
+      className={`${
+        hovered ? styles['hover-animated-container'] : ''
+      } flex flex-col justify-center items-center bg-white rounded-lg shadow-lg p-4 lg:col-span-1`}
+    >
       <div className="w-full h-96 overflow-hidden">
         <img
           src={project.thumbnail_url}
@@ -31,6 +43,8 @@ const Section: React.FC<SectionProps> = ({ project }) => {
         <h2 className="text-2xl font-bold mb-4">{project.title}</h2>
         <p className="text-lg line-clamp-3">{project.description}</p>
         <button
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           onClick={handleReadMoreClick}
           className="text-blue-500 font-semibold mt-4 inline-block"
         >
@@ -40,5 +54,4 @@ const Section: React.FC<SectionProps> = ({ project }) => {
     </div>
   );
 };
-
 export default Section;

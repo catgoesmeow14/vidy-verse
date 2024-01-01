@@ -1,6 +1,7 @@
-import React from 'react';
-import styles from '../styles/dashboard.module.css';
+import React, { RefObject } from 'react';
+import styles from '@/styles/dashboard.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -25,25 +26,20 @@ const Header = () => {
       <nav>
         <ul className="flex space-x-4">
           <li>
-            <a href="#about" className="text-lg text-white hover:text-gray-300">
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="#portfolio"
+            <Link
+              href="/aboutme"
               className="text-lg text-white hover:text-gray-300"
             >
-              Portfolio
-            </a>
+              About
+            </Link>
           </li>
           <li>
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="text-lg text-white hover:text-gray-300"
             >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
