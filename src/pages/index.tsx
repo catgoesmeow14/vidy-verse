@@ -1,13 +1,9 @@
-'use client';
 import React, { useEffect, useState } from 'react';
-import styles from '../../styles/dashboard.module.css';
-import Header from '../../components/Header';
-import Divider from '../../components/Divider';
-import Footer from '../../components/Footer';
-import Section from '../../components/Section';
+import Divider from '@/components/Divider';
+import Section from '@/components/Section';
 import Image from 'next/image';
+import styles from '@/styles/dashboard.module.css';
 
-// Define the project data type
 type Project = {
   project_id: number;
   title: string;
@@ -15,30 +11,34 @@ type Project = {
   thumbnail_url: string;
 };
 
-const Dashboard: React.FC = () => {
+const Dashboard = () => {
   const [projects, setProjects] = useState<Project[]>([]);
-  const projectIds = [1, 2, 3, 4]; // List of project IDs to fetch
 
   useEffect(() => {
+    const projectIds = [1, 2, 3, 4]; // Define projectIds inside useEffect
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://vidyverse-db.vercel.app/projects?ids=${projectIds.join(',')}`
+          `https://vidyverse-db.vercel.app/project?id=${projectIds.join(',')}`
         );
-        const data = await response.json();
-        console.log(data);
-        setProjects(data);
+        if (response.ok) {
+          const data = await response.json();
+          setProjects(data);
+        } else {
+          console.error('Failed to fetch projects. Status:', response.status);
+        }
       } catch (error) {
         console.error('Error fetching projects:', error);
       }
     };
 
     fetchData();
-  }, []);
+  }, []); // Empty dependency array to run once after component mounts
+
+  console.log('projects:', projects);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-100 to-purple-100 text-gray-800">
-      <Header />
       <div className="container mx-auto py-8 mt-8">
         <div
           className={`relative bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg shadow-lg p-6 text-white ${styles['gradient-animation']}`}
@@ -49,16 +49,15 @@ const Dashboard: React.FC = () => {
                 Welcome to Vidy-Verse: Where Creativity Meets Professionalism
               </h1>
               <p className="text-xl">
-                Embark on an enchanting journey through the world of Vidy-Verse,
-                where creativity, cuteness, and professionalism unite in perfect
-                harmony. Discover captivating designs, delightful animations,
-                and expertly crafted content that showcase remarkable talents
-                and achievements. With a touch of whimsy and a dash of
-                professionalism, Vidy-Verse takes you on a delightful adventure
-                through stunning portfolios that capture hearts and inspire
-                minds. Get ready to be charmed by the magic of creativity and
-                leave a lasting impression with your own captivating portfolio.
-                Welcome to Vidy-Verse, where dreams become reality!
+                Embark on a journey through Vidy-Verse, a world where creativity
+                meets professionalism in a charming blend. Explore captivating
+                designs and delightful animations in a portfolio that showcases
+                exceptional talent. Vidy-Verse combines whimsy and expertise,
+                inviting you on an adventure through stunning showcases that
+                inspire and captivate. Experience the magic of creativity in a
+                professional setting and make your mark with a memorable
+                portfolio. Welcome to Vidy-Verse, where your creative dreams are
+                brought to life
               </p>
               <div className="flex items-center mt-6">
                 <div className="bg-white rounded-full p-2">
@@ -106,7 +105,6 @@ const Dashboard: React.FC = () => {
           ))}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
