@@ -33,7 +33,7 @@ const Dashboard = () => {
     };
 
     fetchData();
-  }, []); // Empty dependency array to run once after component mounts
+  }, []);
 
   console.log('projects:', projects);
 
