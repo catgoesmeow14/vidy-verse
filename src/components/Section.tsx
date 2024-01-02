@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from '@/styles/hover_animation.module.css';
+import hoverStyles  from '@/styles/hover_animation.module.css';
+import dashboardStyles from '@/styles/dashboard.module.css';
 
 type SectionProps = {
   project: Project;
@@ -29,7 +30,7 @@ const Section: React.FC<SectionProps> = ({ project }) => {
   return (
     <div
       className={`${
-        hovered ? styles['hover-animated-container'] : ''
+        hovered ? hoverStyles['hover-animated-container'] : ''
       } flex flex-col justify-center items-center bg-white rounded-lg shadow-lg p-4 lg:col-span-1`}
     >
       <div className="w-full h-96 overflow-hidden">
@@ -39,14 +40,16 @@ const Section: React.FC<SectionProps> = ({ project }) => {
           className="w-full h-full object-cover rounded-lg"
         />
       </div>
-      <div className="bg-white p-4 text-black">
+      <div className="p-4 text-black">
         <h2 className="text-2xl font-bold mb-4">{project.title}</h2>
-        <p className="text-lg line-clamp-3">{project.description}</p>
+        <p className="text-lg text-justify line-clamp-3">{project.description}</p>
         <button
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onClick={handleReadMoreClick}
-          className="text-blue-500 font-semibold mt-4 inline-block"
+          // className="text-blue-500 font-semibold mt-4 inline-block"
+          className={`bg-indigo-500 text-white font-semibold py-2 px-4 mt-3 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 float-right ${dashboardStyles['gradient-animation']}`}
+
         >
           Read more
         </button>

@@ -7,7 +7,7 @@
   transform: scale(1.05); /* Zooms in the box */
   --initial-background: rgba(214, 162, 232, 0.5); /* Half opacity gradient */
   background: var(--initial-background, white);
-  animation: alternate-gradient 2s linear infinite;
+  animation: alternate-gradient 4s linear infinite;
   background-size: 200% auto;
 }
 

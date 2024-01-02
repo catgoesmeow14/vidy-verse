@@ -34,14 +34,6 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="#portfolio"
-                className="text-sm text-white hover:text-gray-300"
-              >
-                Portfolio
-              </a>
-            </li>
-            <li>
-              <a
                 href="#contact"
                 className="text-sm text-white hover:text-gray-300"
               >
