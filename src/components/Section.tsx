@@ -1,6 +1,7 @@
-import React from 'react';
-import hoverStyles  from '@/styles/hover_animation.module.css';
-import dashboardStyles from '@/styles/dashboard.module.css';
+import React from "react";
+import hoverStyles from "@/styles/hover_animation.module.css";
+import dashboardStyles from "@/styles/dashboard.module.css";
+import Link from "next/link";
 
 type SectionProps = {
   project: Project;
@@ -20,7 +21,7 @@ const Section: React.FC<SectionProps> = ({ project }) => {
   const handleMouseLeave = () => setHovered(false);
 
   const handleReadMoreClick = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       // Navigate to the project detail page
       const projectDetailUrl = `/project/${project.project_id}`;
       window.open(projectDetailUrl);
@@ -30,7 +31,7 @@ const Section: React.FC<SectionProps> = ({ project }) => {
   return (
     <div
       className={`${
-        hovered ? hoverStyles['hover-animated-container'] : ''
+        hovered ? hoverStyles["hover-animated-container"] : ""
       } flex flex-col justify-center items-center bg-white rounded-lg shadow-lg p-4 lg:col-span-1`}
     >
       <div className="w-full h-96 overflow-hidden">
@@ -42,17 +43,20 @@ const Section: React.FC<SectionProps> = ({ project }) => {
       </div>
       <div className="p-4 text-black">
         <h2 className="text-2xl font-bold mb-4">{project.title}</h2>
-        <p className="text-lg text-justify line-clamp-3">{project.description}</p>
-        <button
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          onClick={handleReadMoreClick}
-          // className="text-blue-500 font-semibold mt-4 inline-block"
-          className={`bg-indigo-500 text-white font-semibold py-2 px-4 mt-3 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 float-right ${dashboardStyles['gradient-animation']}`}
-
-        >
-          Read more
-        </button>
+        <p className="text-lg text-justify line-clamp-3">
+          {project.description}
+        </p>
+        <Link href={`/project/${project.project_id}`} passHref legacyBehavior>
+          <a
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            // onClick={handleReadMoreClick}
+            // className="text-blue-500 font-semibold mt-4 inline-block"
+            className={`bg-indigo-500 text-white font-semibold py-4 px-12 mt-4 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 float-right ${dashboardStyles["gradient-animation"]}`}
+          >
+            Read more
+          </a>
+        </Link>
       </div>
     </div>
   );

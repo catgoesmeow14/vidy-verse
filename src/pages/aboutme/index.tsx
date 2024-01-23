@@ -20,14 +20,9 @@ const AboutMePage = () => {
             </div>
             <div className="p-4 md:w-2/3 flex flex-col justify-between">
               <div>
-                <h2 className="text-3xl font-bold mb-4">John Doe</h2>
+                <h2 className="text-3xl font-bold mb-4">Vidya C</h2>
                 <p className="text-lg mb-6">
-                  Passionate web developer with over 10 years of experience in
-                  crafting engaging websites and applications. Specializing in
-                  React and Next.js, I enjoy turning complex problems into
-                  simple, beautiful, and intuitive designs. When I&apos;m not
-                  coding, you&apos;ll find me hiking or experimenting with new
-                  cooking recipes.
+                  I love sleep and Genshin Impact
                 </p>
               </div>
               <button
