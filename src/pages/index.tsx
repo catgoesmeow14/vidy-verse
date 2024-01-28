@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Divider from "@/components/Divider";
-import Section from "@/components/Section";
-import Image from "next/image";
-import styles from "@/styles/dashboard.module.css";
+import React, { useEffect, useState } from 'react';
+import Divider from '@/components/Divider';
+import Section from '@/components/Section';
+import Image from 'next/image';
+import styles from '@/styles/dashboard.module.css';
 
 type Project = {
   project_id: number;
@@ -19,29 +19,29 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://vidyverse-db.vercel.app/project?id=${projectIds.join(",")}`
+          `https://vidyverse-db.vercel.app/project?id=${projectIds.join(',')}`
         );
         if (response.ok) {
           const data = await response.json();
           setProjects(data);
         } else {
-          console.error("Failed to fetch projects. Status:", response.status);
+          console.error('Failed to fetch projects. Status:', response.status);
         }
       } catch (error) {
-        console.error("Error fetching projects:", error);
+        console.error('Error fetching projects:', error);
       }
     };
 
     fetchData();
   }, []);
 
-  console.log("projects:", projects);
+  console.log('projects:', projects);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-100 to-purple-100 text-gray-800">
-      <div className="container mx-auto py-8 mt-8">
+      <div className="container mx-auto py-8">
         <div
-          className={`relative bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg shadow-lg p-6 text-white ${styles["gradient-animation"]}`}
+          className={`relative bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg shadow-lg p-6 text-white ${styles['gradient-animation']}`}
         >
           <div className="flex items-center justify-between">
             <div>
