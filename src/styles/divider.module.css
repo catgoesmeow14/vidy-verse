@@ -1,3 +1,5 @@
+/* this is divider css */
+
 .animate-divider {
   animation: animate-circle 2s ease-in-out infinite;
 }
@@ -19,6 +21,31 @@
     width: 6px;
     height: 6px;
     background-color: #fce38a;
+    transform: scale(1);
+  }
+}
+
+:root.dark .animate-divider {
+  animation: animate-circle-dark 2s ease-in-out infinite;
+}
+
+@keyframes animate-circle-dark {
+  0% {
+    width: 6px;
+    height: 6px;
+    background-color: #fbbf24;
+    transform: scale(1);
+  }
+  50% {
+    width: 10px;
+    height: 10px;
+    background-color: #ef4444;
+    transform: scale(1.2);
+  }
+  100% {
+    width: 6px;
+    height: 6px;
+    background-color: #fbbf24;
     transform: scale(1);
   }
 }

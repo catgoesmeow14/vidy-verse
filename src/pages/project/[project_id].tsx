@@ -60,65 +60,36 @@ const ProjectPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-100 to-purple-100 text-gray-800">
-      <div className="container mx-auto py-8">
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <div className="flex flex-row">
-            {/* First Column for Images */}
-            <div className="flex flex-col w-2/3">
-              {/* First Image Container */}
-              <div className="w-full h-96">
-                {" "}
+    <div className="min-h-screen text-gray-800 bg-gradient-to-r from-indigo-100 to-purple-100">
+      <div className="container py-8 mx-auto">
+        <div className="overflow-hidden bg-white rounded-lg shadow-lg">
+          <div className="px-10 py-7">
+            <h1 className="my-6 text-2xl font-bold text-center">
+              {project.title}
+            </h1>
+            <div className="flex justify-center my-6">
+              <div className="h-50 w-96">
                 <img
                   src={project.thumbnail_url}
                   alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Second Image Container */}
-              <div className="w-full h-96">
-                {" "}
-                <img
-                  src={project.thumbnail_url} // Duplicate image
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Third Image Container */}
-              <div className="w-full h-96">
-                {" "}
-                <img
-                  src={project.thumbnail_url} // Duplicate image
-                  alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="object-cover w-full h-full rounded-lg"
                 />
               </div>
             </div>
-            {/* Second Column for Article */}
-            <div className="p-4 px-12 w-1/2 justify-between">
-              <div>
-                <h1 className="text-2xl font-bold my-6 text-center">
-                  {project.title}
-                </h1>
-                <p className="text-lg mb-6 text-justify">
-                  {project.description}
-                </p>
-              </div>
-              {/* Align Button to the Right */}
-              <div className="text-right">
-                {" "}
-                {/* Use text-right for alignment */}
-                <button
-                  onClick={goBack}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  className={`bg-indigo-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform ${
-                    hovered ? hoverStyles["hover-animated-container"] : ""
-                  } ${dashboardStyles["gradient-animation"]}`}
-                >
-                  &larr; Back to Dashboard
-                </button>
-              </div>
+            <p className="my-6 text-lg text-justify">
+              {project.description}
+            </p>
+            <div className="text-right">
+              <button
+                onClick={goBack}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className={`bg-indigo-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform ${
+                  hovered ? hoverStyles["hover-animated-container"] : ""
+                } ${dashboardStyles["gradient-animation"]}`}
+              >
+                &larr; Back to Dashboard
+              </button>
             </div>
           </div>
         </div>

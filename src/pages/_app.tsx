@@ -9,7 +9,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     // Replacing React Fragment with a div and applying Tailwind's reset classes
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow mt-20">
         <Component {...pageProps} />
       </main>
       <Footer />

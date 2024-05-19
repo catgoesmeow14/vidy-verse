@@ -13,9 +13,10 @@ type Project = {
 
 const Dashboard = () => {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const projectIds = [1, 2, 3, 4, 5]; // Define projectIds outside useEffect
 
   useEffect(() => {
-    const projectIds = [1, 2, 3, 4, 5]; // Define projectIds inside useEffect
     const fetchData = async () => {
       try {
         const response = await fetch(
@@ -35,17 +36,29 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (isDarkTheme) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkTheme]);
+
+  const toggleTheme = () => {
+    setIsDarkTheme((prevTheme) => !prevTheme);
+  };
+
   console.log('projects:', projects);
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-100 to-purple-100 text-gray-800">
-      <div className="container mx-auto py-8">
+    <div className={`min-h-screen ${isDarkTheme ? 'dark' : ''}`}>
+      <div className="container py-8 mx-auto">
         <div
-          className={`relative bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg shadow-lg p-6 text-white ${styles['gradient-animation']}`}
+          className={`relative bg-gradient-to-r from-indigo-500 to-purple-500 dark:from-gray-800 dark:to-gray-600 rounded-lg shadow-lg p-6 text-white ${styles['gradient-animation']}`}
         >
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-5xl font-bold text-shadow mb-4">
+              <h1 className="mb-4 text-5xl font-bold text-shadow">
                 Welcome to Vidy-Verse: Where Creativity Meets Professionalism
               </h1>
               <p className="text-xl">
@@ -60,13 +73,13 @@ const Dashboard = () => {
                 brought to life
               </p>
               <div className="flex items-center mt-6">
-                <div className="bg-white rounded-full p-2">
+                <div className="p-2 bg-white rounded-full">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    className="h-6 w-6 text-indigo-500"
+                    className="w-6 h-6 text-indigo-500"
                   >
                     <path
                       strokeLinecap="round"
@@ -76,7 +89,7 @@ const Dashboard = () => {
                     />
                   </svg>
                 </div>
-                <p className="text-lg text-gray-300 ml-4">
+                <p className="ml-4 text-lg text-gray-300">
                   Scroll down to explore more!
                 </p>
               </div>
@@ -92,16 +105,32 @@ const Dashboard = () => {
               />
             </div>
           </div>
+          <div className="flex items-center justify-end mt-4">
+            <label htmlFor="theme-toggle" className="mr-2 text-lg">
+              Dark Mode
+            </label>
+            <div className="relative inline-block w-12 mr-2 align-middle transition duration-200 ease-in select-none">
+              <input
+                type="checkbox"
+                name="theme-toggle"
+                id="theme-toggle"
+                checked={isDarkTheme}
+                onChange={toggleTheme}
+                className="absolute block w-6 h-6 bg-white border-4 rounded-full appearance-none cursor-pointer toggle-checkbox"
+              />
+              <label
+                htmlFor="theme-toggle"
+                className={`block overflow-hidden h-6 rounded-full ${isDarkTheme ? 'bg-gray-600' : 'bg-gray-300'} toggle-label`}
+              ></label>
+            </div>
+          </div>
         </div>
 
         <Divider />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-5">
+        <div className="grid grid-cols-1 gap-8 mt-5 lg:grid-cols-2">
           {/* Map project data to the grid */}
           {projects.map((project) => (
-            <React.Fragment key={project.project_id}>
-              {/* Section */}
-              <Section project={project} />
-            </React.Fragment>
+            <Section key={project.project_id} project={project} />
           ))}
         </div>
       </div>

@@ -1,6 +1,12 @@
+/* this is hover animation css */
+
 .hover-animated-container {
   transition: transform 0.3s ease, background 0.3s ease;
   background: var(--initial-background, white);
+}
+
+:root.dark .hover-animated-container {
+  background: var(--initial-background, #2d2d2d);
 }
 
 .hover-animated-container:hover {
@@ -9,6 +15,11 @@
   background: var(--initial-background, white);
   animation: alternate-gradient 4s linear infinite;
   background-size: 200% auto;
+}
+
+:root.dark .hover-animated-container:hover {
+  --initial-background: rgba(75, 85, 99, 0.5); /* Half opacity gradient */
+  background: var(--initial-background, #2d2d2d);
 }
 
 @keyframes alternate-gradient {
@@ -29,5 +40,13 @@
     to right,
     #1a74eb,
     /* Different color */ #b6fbff /* Different color */
+  );
+}
+
+:root.dark .hover-animated-container:hover {
+  background-image: linear-gradient(
+    to right,
+    #2563eb,
+    /* Different color */ #06b6d4 /* Different color */
   );
 }

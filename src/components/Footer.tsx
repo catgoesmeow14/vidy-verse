@@ -7,19 +7,19 @@ const Footer = () => {
     <footer
       className={`bg-indigo-500 text-white py-8 ${styles['gradient-animation']}`}
     >
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+      <div className="container flex flex-col items-center justify-between mx-auto md:flex-row">
         <div className="flex items-center">
           <Image
             // herta chibi
             src="/assets/herta chibi.jpg"
             alt="Vidya-Verse Logo"
-            className="h-12 w-12 rounded-full mr-2"
+            className="w-12 h-12 mr-2 rounded-full"
             width={500}
             height={500}
           />
           <div>
             <h1 className="text-2xl font-bold">Vidya-Verse</h1>
-            <p className="text-base mt-1">Explore the world of Vidya</p>
+            <p className="mt-1 text-base">Explore the world of Vidya</p>
           </div>
         </div>
         <nav className="mt-4 md:mt-0">
@@ -43,7 +43,7 @@ const Footer = () => {
           </ul>
         </nav>
       </div>
-      <div className="text-center mt-4">
+      <div className="mt-4 text-center">
         <p className="text-xs">
           &copy; {new Date().getFullYear()} Vidya-Verse. All rights reserved.
         </p>
